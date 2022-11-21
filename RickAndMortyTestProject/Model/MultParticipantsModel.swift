@@ -7,10 +7,14 @@
 
 import Foundation
 
+// MARK: - MultParticipantsModel
+
 struct MultParticipantsModel:  Codable {
 
     let results: [Results]?
 }
+
+// MARK: - Results
 
 struct Results: Codable {
     
@@ -22,6 +26,8 @@ struct Results: Codable {
     let species: String?
     let origin: Origin?
 }
+
+// MARK: - Origin
 
 struct Origin: Codable {
     

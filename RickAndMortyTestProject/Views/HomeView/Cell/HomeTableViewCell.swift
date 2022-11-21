@@ -25,9 +25,6 @@ class HomeTableViewCell: UITableViewCell {
         label.setTitle("Kristen Stewart", for: .normal)
         label.setTitleColor(.black, for: .normal)
         label.titleLabel?.font = UIFont.systemFont(ofSize: 18,weight: .bold)
-//        label.text = "Kristen Stewart"
-//        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-//        label.textColor = .black
         label.addTarget(self, action: #selector(tapped(_ :)), for: .touchUpInside)
         return label
     }()
@@ -71,13 +68,10 @@ class HomeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

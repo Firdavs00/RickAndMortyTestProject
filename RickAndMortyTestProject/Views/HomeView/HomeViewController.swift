@@ -15,7 +15,6 @@ class HomeViewController: UIViewController {
     var results: [Results]? {
         didSet {
             DispatchQueue.main.async { [self] in
-                
                 tableView.reloadData()
             }
             print("Reults was set")
@@ -35,7 +34,6 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "HomeTableViewCell")
-        
         return tableView
     }()
     
@@ -48,9 +46,8 @@ class HomeViewController: UIViewController {
         
         participanManager.getMultParticipant(complation: { results in
         self.results = results.results
-//Userdefaulst
+// Userdefaulst
         Defaults.storeParticipan(participan:MultParticipantsModel(results: self.results))
-        print("Load ==> \(String(describing: Defaults.loadParticipan()))")
             
         DispatchQueue.main.async { [self] in
                 tableView.reloadData()
@@ -94,7 +91,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.action = { click in
             
-//            self.participanManager.getParticipant(id: self.results?[indexPath.row].id ?? 0) { _ in }
             let vc = DetailViewController()
             vc.id = self.results?[indexPath.row].id ?? 0
             self.navigationController?.pushViewController(vc, animated: true)
@@ -133,7 +129,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             
             participanManager.page += 1
             participanManager.getMultParticipant(complation: { results in
-                
                 self.results! += results.results ?? []
             })
             Defaults.storeParticipan(participan:MultParticipantsModel(results: self.results))

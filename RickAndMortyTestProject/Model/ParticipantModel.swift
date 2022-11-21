@@ -8,7 +8,7 @@
 import Foundation
 
 
-// MARK: - Welcome
+// MARK: - ParticipantModel
 struct ParticipantModel: Decodable {
     let id: Int?
     let name, status, species, type: String?
